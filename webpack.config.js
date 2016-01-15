@@ -6,10 +6,10 @@ const DEBUG = !argv.release;
 
 const config = {
   entry: {
-    web: './www/static/src/web/main.jsx'
+    web: './www/static/src/main.jsx'
   },
   output: {
-    path: `${__dirname}/www/static/dist/`,
+    path: `${__dirname}/www/static/dist/js`,
     filename: '[name].bundle.js'
   },
   resolve: {
