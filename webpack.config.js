@@ -21,8 +21,12 @@ const config = {
     loaders: [
       {
         test: /\.jsx?$/,
-        loader: 'babel?stage=0',
-        exclude: /node_modules/
+        loader: 'babel',
+        exclude: /node_modules/,
+        query: {
+          plugins: ['transform-runtime'],
+          presets: ['es2015', 'stage-2', 'react'],
+        }
       }
     ]
   },

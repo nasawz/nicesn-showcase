@@ -9,17 +9,23 @@
     "watch": "npm run watch-compile"
   },
   "dependencies": {
+    "babel-runtime": "^6.3.19",
     "react": "^0.14.6",
     "react-dom": "^0.14.6",
-    "thinkjs": "2.1.x",
-    "babel-runtime": "6.x.x"
+    "thinkjs": "2.1.x"
   },
   "devDependencies": {
     "babel-cli": "6.x.x",
-    "babel-preset-es2015-loose": "6.x.x",
-    "babel-preset-stage-1": "6.x.x",
-    "babel-plugin-transform-runtime": "6.x.x",
     "babel-core": "6.x.x",
+    "babel-loader": "^6.2.1",
+    "babel-plugin-transform-runtime": "^6.4.3",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-es2015-loose": "6.x.x",
+    "babel-preset-react": "^6.3.13",
+    "babel-preset-stage-2": "^6.3.13",
+    "browser-sync": "^2.11.0",
+    "chalk": "^1.1.1",
+    "del": "^2.2.0",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-babel": "^6.1.1",
@@ -32,12 +38,9 @@
     "gulp-size": "^2.0.0",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-util": "^3.0.7",
-    "run-sequence": "^1.1.5",
-    "webpack": "^1.12.11",
-    "browser-sync": "^2.11.0",
-    "chalk": "^1.1.1",
-    "del": "^2.2.0",
     "merge-stream": "^1.0.0",
-    "minimist": "^1.2.0"
+    "minimist": "^1.2.0",
+    "run-sequence": "^1.1.5",
+    "webpack": "^1.12.11"
   }
 }
