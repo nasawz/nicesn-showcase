@@ -1,12 +1,15 @@
 import gulp from 'gulp';
 import gulpLoadplugin from 'gulp-load-plugins';
 import merge from 'merge-stream';
+import minifyCss from "gulp-minify-css";
 import minimist from 'minimist';
 const $ = gulpLoadplugin();
 
 const argv = minimist(process.argv.slice(2));
+console.log(argv);
 const DEBUG = !argv.release;
-const webDist = 'www/static/dist';
+const cssDist = 'www/static/dist/css';
+const fontsDist = 'www/static/dist/fonts';
 
 // Compile and automatically prefix stylesheets
 gulp.task('web styles', () => {
@@ -19,7 +22,7 @@ gulp.task('web styles', () => {
   ];
 
   function compile(src, dist) {
-    return src.pipe($.changed('.tmp/styles', {
+    return DEBUG ? src.pipe($.changed('.tmp/styles', {
       extension: '.css'
     }))
       .pipe($.sourcemaps.init())
@@ -36,11 +39,28 @@ gulp.task('web styles', () => {
         includeContent: true,
         sourceRoot: '/static/src/style'
       }))
-      .pipe(gulp.dest(webDist))
+      .pipe(gulp.dest(cssDist))
       .pipe($.size({
         title: 'web styles'
+      })) : src
+      .pipe($.less({
+        outputStyle: 'compressed',
+        includePaths: ['www/static/src/style', 'node_modules']
       }))
+      .pipe($.autoprefixer({
+        browsers: AUTOPREFIXER_BROWSERS
+      }))
+      .pipe($.concat(dist))
+      .pipe(gulp.dest(cssDist))
+      .pipe(minifyCss({
+        keepSpecialComments: 0
+      }))
+      .pipe(gulp.dest(cssDist))
+      .pipe($.size({
+        title: 'web styles'
+      }));
   }
-
+  gulp.src('www/static/src/fonts/*')
+    .pipe(gulp.dest(fontsDist));
   return compile(gulp.src(['www/static/src/style/**/*.{css,less}']), 'web.css');
 });
