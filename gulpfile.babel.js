@@ -50,10 +50,10 @@ gulp.task('serve', ['watch'], () => {
   let reload = browserSync.reload;
 
   // gulp.watch(`${webDist}/*.{css,js}`, reload);
-  gulp.watch(`www/static/dist/css/**`, reload);
+  // gulp.watch(`www/static/dist/css/**`, reload);
   gulp.watch(`www/static/dist/js/**`, reload);
-  // gulp.watch(`www/static/dist/images/**`, reload);
-  gulp.watch(`www/static/dist/fonts/**`, reload);
+// gulp.watch(`www/static/dist/images/**`, reload);
+// gulp.watch(`www/static/dist/fonts/**`, reload);
 });
 
 // Clean output directory and temporary directory
