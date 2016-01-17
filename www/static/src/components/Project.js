@@ -9,10 +9,10 @@ const Project = React.createClass({
       <Col sm={6} md={3} className={classNames(this.props.className, "masonry-item project")}>
         <div className="image-tile inner-title hover-reveal text-center">
           <a href="javascript:;">
-            <img alt="Pic" src="http://pic30.nipic.com/20130618/11860366_201437262000_2.jpg" />
+            <img alt="Pic" src={this.props.item.url} />
             <div className="title">
-              <h5 className="uppercase mb0">Pondering Blonde</h5>
-              <span>People / Life</span>
+              <h5 className="uppercase mb0">{this.props.item.title}</h5>
+              <span>{this.props.item.filters}</span>
             </div>
           </a>
         </div>

@@ -17,6 +17,7 @@ module.exports = {
   },
   externals: {
     "Masonry": "window.Masonry",
+    "JQuery": "window.jQuery",
   },
   resolve: {
     extensions: ['', '.js', '.jsx'],
