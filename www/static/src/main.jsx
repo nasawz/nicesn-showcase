@@ -5,6 +5,9 @@ import ReactDOM from 'react-dom';
 
 import Home from "./pages/home.jsx";
 
+var injectTapEventPlugin = require("react-tap-event-plugin");
+injectTapEventPlugin();
+
 new Promise(resolve => {
   if (window.addEventListener) {
     window.addEventListener('DOMContentLoaded', resolve);

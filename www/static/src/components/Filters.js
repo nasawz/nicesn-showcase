@@ -9,18 +9,47 @@ const Filters = React.createClass({
      */
     componentClass: elementType
   },
+  getInitialState: function() {
+    return {
+      currFilter: this.props.currFilter || 'All'
+    };
+  },
   getDefaultProps: function() {
     return {
-      componentClass: 'ul'
+      componentClass: 'ul',
+      currFilter: 'All',
+      filters:[
+        'Demo1',
+        'Demo2',
+        'Demo3',
+      ]
     };
+  },
+  changeFilter(e){
+    let el = e.target;
+    this.setState({
+      currFilter: el.getAttribute('data-filter')
+    });
+  },
+  renderFilter(filter,i){
+    let active_classes = ''
+    if (filter == this.state.currFilter) {
+      active_classes = 'active'
+    }
+    return <li onTouchTap={this.changeFilter} key={i} data-filter={filter} className={active_classes}>{filter}</li>
   },
   render() {
     let ComponentClass = this.props.componentClass;
+      let self = this;
+      let i = 0;
     return (
       <ComponentClass {...this.props} className={classNames(this.props.className, 'filters floating cast-shadow mb0')}>
-        <li data-filter="all" className="active">All</li>
-        <li data-filter="Demo1" className="">Demo1</li>
-        <li data-filter="Demo2" className="">Demo2</li>
+        { this.renderFilter(this.props.currFilter,i)}
+        {
+          this.props.filters.map((item) => {
+            i++;
+            return self.renderFilter(item,i)
+        })}
       </ComponentClass>
       )
   }

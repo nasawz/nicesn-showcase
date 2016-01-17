@@ -38,6 +38,7 @@ const Projects = React.createClass({
         });
       })
       msnry.layout();
+      window.msnry = msnry;
     }, 1500);
   },
   render() {
@@ -55,15 +56,17 @@ const Projects = React.createClass({
 
     let loader_classes = ''
     let project_classes = ''
+    let masonry_classes={}
     if (this.state.isLoaded) {
       loader_classes ='fadeOut'
       project_classes ='fadeIn'
+      masonry_classes['fadeIn']=true
     }
     return (
       <ComponentClass {...this.props} className={classNames(this.props.className, classes)}>
             <Filters />
             <Loader className={loader_classes} />
-            <Row ref="masonry" className="masonry masonryFlyIn fadeIn">
+            <Row ref="masonry" className={classNames("masonry masonryFlyIn fadeIn", masonry_classes)} >
               <Project className={project_classes} />
               <Project className={project_classes} />
               <Project className={project_classes} />

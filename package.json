@@ -16,6 +16,7 @@
     "react": "^0.14.6",
     "react-dom": "^0.14.6",
     "react-prop-types": "^0.3.0",
+    "react-tap-event-plugin": "^0.2.1",
     "thinkjs": "2.1.x",
     "warning": "^2.1.0"
   },
