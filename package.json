@@ -6,13 +6,18 @@
     "start": "node www/development.js",
     "compile": "babel --presets es2015-loose,stage-1 --plugins transform-runtime src/ --out-dir app/ --retain-lines",
     "watch-compile": "node -e \"console.log('<npm run watch-compile> no longer need, use <npm start> command direct.');console.log();\"",
-    "watch": "npm run watch-compile"
+    "watch": "npm run watch-compile",
+    "web": "webpack-dev-server --devtool eval --progress --hot --colors --host 0.0.0.0 --content-base www/static/src/"
   },
   "dependencies": {
     "babel-runtime": "^6.3.19",
+    "classnames": "^2.2.3",
+    "invariant": "^2.2.0",
     "react": "^0.14.6",
     "react-dom": "^0.14.6",
-    "thinkjs": "2.1.x"
+    "react-prop-types": "^0.3.0",
+    "thinkjs": "2.1.x",
+    "warning": "^2.1.0"
   },
   "devDependencies": {
     "babel-cli": "6.x.x",
@@ -26,6 +31,7 @@
     "browser-sync": "^2.11.0",
     "chalk": "^1.1.1",
     "del": "^2.2.0",
+    "file-loader": "^0.8.5",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-babel": "^6.1.1",
