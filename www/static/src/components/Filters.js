@@ -11,18 +11,12 @@ const Filters = React.createClass({
   },
   getInitialState: function() {
     return {
-      currFilter: this.props.currFilter || 'All'
+      currFilter: this.props.data.currFilter || 'All'
     };
   },
   getDefaultProps: function() {
     return {
       componentClass: 'ul',
-      currFilter: 'All',
-      filters:[
-        'Demo1',
-        'Demo2',
-        'Demo3',
-      ]
     };
   },
   changeFilter(e){
@@ -44,9 +38,8 @@ const Filters = React.createClass({
       let i = 0;
     return (
       <ComponentClass {...this.props} className={classNames(this.props.className, 'filters floating cast-shadow mb0')}>
-        { this.renderFilter(this.props.currFilter,i)}
         {
-          this.props.filters.map((item) => {
+          this.props.data.filters.map((item) => {
             i++;
             return self.renderFilter(item,i)
         })}

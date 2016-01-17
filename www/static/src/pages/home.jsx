@@ -91,6 +91,14 @@ let langs = [{
 }
 ]
 
+let filters = ['All','Demo3',
+'Demo4',
+'Demo5']
+let currFilter = 'All'
+let filter_data = {
+  filters:filters,
+  currFilter:currFilter
+}
 
 const Home = React.createClass({
   componentDidMount: function() {
@@ -100,7 +108,7 @@ const Home = React.createClass({
       <div>
         <Navigation logo={logoObj} mode='dark' menus={menus} langs={langs} search={true}>Navigation</Navigation>
         <div className="main-container">
-          <Projects mode="dark"/>
+          <Projects filter_data={filter_data} mode="dark"/>
         </div>
       </div>
 

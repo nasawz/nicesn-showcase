@@ -64,7 +64,7 @@ const Projects = React.createClass({
     }
     return (
       <ComponentClass {...this.props} className={classNames(this.props.className, classes)}>
-            <Filters />
+            <Filters data={this.props.filter_data} />
             <Loader className={loader_classes} />
             <Row ref="masonry" className={classNames("masonry masonryFlyIn fadeIn", masonry_classes)} >
               <Project className={project_classes} />
