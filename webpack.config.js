@@ -13,7 +13,9 @@ module.exports = {
   output: {
     path: `${__dirname}/www/static/dist`,
     publicPath: '/static/dist/',
-    filename: 'js/[name].bundle.js'
+    filename: 'js/[name].bundle.js',
+    hotUpdateChunkFilename: '1',
+    hotUpdateMainFilename: '2'
   },
   externals: {
     "Masonry": "window.Masonry",
