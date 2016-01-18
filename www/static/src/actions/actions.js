@@ -72,5 +72,5 @@ let projects = [
   },
 ]
 export function getProjects() {
-  return { type: ActionTypes.GET_PROJECTS, projects };
+  return { type: ActionTypes.GET_PROJECTS, projects:projects };
 }

@@ -7,5 +7,5 @@ export default combineReducers({
 })
 
 export function getProjects(state) {
-    return state.Project
+    return state.Project.toJS()
 }

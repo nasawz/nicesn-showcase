@@ -20,8 +20,6 @@ const middleware = process.env.NODE_ENV === 'production' ?
 
 const createStoreWithMiddleware = applyMiddleware(...middleware)(createStore);
 const store = createStoreWithMiddleware(reducer);
-console.log(store);
-console.log('-------');
 
 window.mr_navScrolled = false;
 

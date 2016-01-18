@@ -2,9 +2,11 @@ import createBrowserHistory from 'history/lib/createBrowserHistory'
 import React from 'react';
 import { Router, Route, Link, IndexRoute, useRouterHistory } from "react-router";
 
-import About from "./pages/about.jsx";
+import AboutContainer from "./containers/AboutContainer.js";
 import Container from "./Container.jsx";
 import Empty from "./Empty.jsx";
+
+// import About from "./pages/about.jsx";
 
 const createAppHistory = useRouterHistory(createBrowserHistory);
 const appHistory = createAppHistory({
@@ -21,7 +23,7 @@ const rootRoute = {
     },
     {
       path: '/about',
-      component: About
+      component: AboutContainer
     },
     {
       path: '*',
