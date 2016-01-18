@@ -32,6 +32,9 @@ const Projects = React.createClass({
     let el = ReactDOM.findDOMNode(this.refs.masonry)
     let msnry;
     let self = this;
+    if (!window.mr_navScrolled) {
+      window.mr_navScrolled = false;  
+    }
     addEventListener('scroll', function() {
         mr_scrollTop = window.pageYOffset;
     }, false);

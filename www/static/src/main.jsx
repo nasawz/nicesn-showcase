@@ -1,12 +1,29 @@
 // import 'babel-core/polyfill'
 
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import logger from 'redux-logger'
+import thunk from 'redux-thunk'
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux'
+import { createStore, applyMiddleware } from 'redux'
 
+import definedRouter from './Router.jsx';
+import reducer from './reducers'
 import Home from "./pages/home.jsx";
 
-var injectTapEventPlugin = require("react-tap-event-plugin");
 injectTapEventPlugin();
+
+const middleware = process.env.NODE_ENV === 'production' ?
+    [thunk] :
+    [thunk, logger()];
+
+const createStoreWithMiddleware = applyMiddleware(...middleware)(createStore);
+const store = createStoreWithMiddleware(reducer);
+console.log(store);
+console.log('-------');
+
+window.mr_navScrolled = false;
 
 new Promise(resolve => {
   if (window.addEventListener) {
@@ -16,7 +33,9 @@ new Promise(resolve => {
   }
 }).then(() => {
   ReactDOM.render(
-    <Home />,
+    <Provider store={store}>
+      {definedRouter}
+    </Provider>,
     document.getElementById('container')
   );
 });
